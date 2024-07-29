@@ -11,7 +11,8 @@ class LoginService {
     required String password,
     required BuildContext context,
   }) async {
-    var url = Uri.http('localhost:3001', 'api/login');
+    //Changed to private IP for using on other devices
+    var url = Uri.http('192.168.1.19:3001', 'api/login');
     var response = await http.post(
       url,
       body: {"email": email, "password": password},
