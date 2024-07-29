@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:enquiry_form_android/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
@@ -19,7 +20,7 @@ class LoginService {
 
     if (res['result']) {
       // ignore: use_build_context_synchronously
-      context.go('/dashboard');
+      context.go('/dashboard', extra: User(jwt: res['token']));
     } else {
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
